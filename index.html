@@ -219,6 +219,12 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   .cinfo{padding:0 4px;}
 }
 
+
+/* ── DESKTOP: static hero (first slide only) ── */
+@media(min-width:769px){
+  .hero-slide { opacity: 0 !important; transition: none !important; }
+  .hero-slide:first-child { opacity: 1 !important; }
+}
 </style>
 </head>
 <body>
@@ -466,8 +472,10 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 <script>
-// ── SLIDESHOW ──
+// ── SLIDESHOW (mobile only) ──
 (function(){
+  // Only run slideshow on mobile/tablet (≤768px)
+  if(window.innerWidth > 768) return;
   var slides = document.querySelectorAll('.hero-slide');
   var idx = 0;
   if(slides.length <= 1) return;
