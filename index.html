@@ -98,13 +98,15 @@ section{padding:64px 20px;}
 .rdate{font-size:11px;color:#94a3b8;}
 
 /* ── ABOUT ── */
-.about-section{background:#fff;}
-.about-inner{max-width:700px;margin:0 auto;display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
-.about-logo{width:180px;flex-shrink:0;}
+.about-section .sl{color:#f59e0b;}
+.about-section .st{color:#fff;}
+.about-section{background:linear-gradient(135deg,#0d1b2a 0%,#1a3a6b 60%,#1d4ed8 100%);}
+.about-inner{max-width:700px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;}
+.about-logo-centered{width:100%;display:flex;justify-content:center;} .about-logo-row{display:flex;align-items:center;gap:20px;} .about-logo-row img{height:120px;width:auto;border-radius:10px;} .about-logo{width:180px;flex-shrink:0;}
 .about-logo img{width:100%;border-radius:10px;}
-.about-text h3{font-size:20px;font-weight:900;color:var(--d1);margin-bottom:10px;}
-.about-text p{font-size:14px;color:#475569;line-height:1.7;margin-bottom:10px;}
-.about-cert{display:inline-flex;align-items:center;gap:6px;background:#fef3c7;border:1px solid #fcd34d;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#92400e;}
+.about-text h3{font-size:20px;font-weight:900;color:#fff;margin-bottom:10px;}
+.about-text p{font-size:14px;color:#cbd5e1;line-height:1.7;margin-bottom:10px;}
+.about-cert{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#fcd34d;}
 
 /* ── HOURS ── */
 .hours-section{background:#f8fafc;}
@@ -340,11 +342,15 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   <div class="sl">About Us</div>
   <div class="st">About Patriot Heating &amp; Cooling, LLC</div>
   <div class="about-inner">
-    <div class="about-logo">
-      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="Patriot Heating & Cooling Logo">
+    <div class="about-logo-centered">
+      <div class="about-logo-row">
+        <span style="font-size:64px;line-height:1;">&#127482;&#127480;</span>
+        <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="Patriot Heating &amp; Cooling Logo">
+        <span style="font-size:64px;line-height:1;">&#127482;&#127480;</span>
+      </div>
     </div>
     <div class="about-text">
-      <h3>&#127482;&#127480; Veteran-Owned. Troy Trusted.</h3>
+      <h3>Veteran-Owned. Troy Trusted.</h3>
       <p>Patriot Heating &amp; Cooling, LLC is a veteran-owned and operated business serving Troy, AL and surrounding communities. Wallace Atwell has <strong>20+ years of HVAC experience</strong> and would love the chance to protect your comfort.</p>
       <p>We bring the same discipline, integrity, and commitment to every service call that we carried in service to our country. When you call Patriot, you get honest pricing, same-day availability, and a technician who actually cares.</p>
       <div class="about-cert">&#127775; AL Certification #18123 &bull; Licensed &amp; Insured</div>
