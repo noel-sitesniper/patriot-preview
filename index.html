@@ -19,9 +19,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
 /* ── HERO SLIDESHOW ── */
-.hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:center;overflow:hidden;}
+.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:center;overflow:hidden;}
 .hero-slides{position:absolute;inset:0;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center center;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;image-rendering:high-quality;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;will-change:opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);}
 .hero-slide.active{opacity:1;}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.84) 0%,rgba(185,28,28,0.25) 100%);}
 .hero-content{position:relative;z-index:2;padding:0 28px;max-width:620px;margin-top:64px;}
@@ -59,7 +59,7 @@ section{padding:64px 20px;}
 .ss{text-align:center;color:#64748b;font-size:14px;max-width:500px;margin:0 auto 36px;line-height:1.6;}
 
 /* ── SERVICES (accordion) ── */
-.svc-section{background:#f8fafc;}
+.svc-section{background:#ffffff;}
 .svc-groups{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
 .svc-group{background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
 .svc-group-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:#fff;border:none;width:100%;text-align:left;font-family:inherit;}
@@ -87,7 +87,7 @@ section{padding:64px 20px;}
 @keyframes slideLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* ── REVIEWS CAROUSEL ── */
-.reviews-section{background:#f8fafc;overflow:hidden;}
+.reviews-section{background:#ffffff;overflow:hidden;}
 .rev-outer{overflow:hidden;position:relative;}
 .rev-inner{display:flex;gap:16px;padding:0 20px;width:max-content;animation:slideLeft 40s linear infinite;}
 .rev-inner:hover{animation-play-state:paused;}
@@ -109,7 +109,7 @@ section{padding:64px 20px;}
 .about-cert{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#fcd34d;}
 
 /* ── HOURS ── */
-.hours-section{background:#f8fafc;}
+.hours-section{background:#ffffff;}
 .hours-table{max-width:400px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;background:#fff;}
 .hours-row{display:flex;justify-content:space-between;padding:11px 20px;border-bottom:1px solid #f1f5f9;font-size:14px;}
 .hours-row:last-child{border-bottom:none;}
@@ -175,6 +175,34 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   #cbox{width:calc(100vw - 40px);}
   .about-logo{width:100%;}
 }
+
+/* ── RED SECTION HEADERS ── */
+.section-red-header{
+  background:#b91c1c;
+  padding:40px 20px 28px;
+  text-align:center;
+}
+.section-red-header .sl{
+  color:rgba(255,255,255,0.75) !important;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.section-red-header .st{
+  color:#ffffff !important;
+  font-size:clamp(22px,4vw,32px);
+  font-weight:900;
+  margin-bottom:8px;
+  line-height:1.2;
+}
+.section-red-header .ss{
+  color:rgba(255,255,255,0.82) !important;
+  max-width:500px;
+  margin:0 auto;
+}
+
 </style>
 </head>
 <body>
@@ -241,9 +269,12 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- SERVICES -->
 <section class="svc-section">
+  <div class="section-red-header">
   <div class="sl">What We Do</div>
   <div class="st">Full HVAC Services</div>
   <div class="ss">Wallace Atwell and his team handle everything from routine tune-ups to full system installs. Click a category to see details.</div>
+</div>
+
   <div class="svc-groups">
 
     <div class="svc-group open">
@@ -316,9 +347,12 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- REVIEWS CAROUSEL -->
 <section class="reviews-section">
+  <div class="section-red-header">
   <div class="sl">What Customers Say</div>
   <div class="st">4.9&#9733; on Google &mdash; 63 Reviews</div>
   <div class="ss">Real feedback from homeowners in Troy, AL and surrounding areas.</div>
+</div>
+
   <div class="rev-outer">
     <div class="rev-inner">
       <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">They answer the phone every time I call and show up the same day. Always nice and professional. Very reasonable price. Always given me sound advice to save money on my AC unit. I highly recommend them.</div><div class="rauth">Nicky</div><div class="rdate">2 months ago</div></div>
@@ -362,8 +396,11 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- HOURS -->
 <section class="hours-section">
+  <div class="section-red-header">
   <div class="sl">Business Hours</div>
   <div class="st">When We're Available</div>
+</div>
+
   <div class="hours-table">
     <div class="hours-row" id="h-mon"><span class="day">Monday</span><span class="time">6:30 AM – 6:00 PM</span></div>
     <div class="hours-row"><span class="day">Tuesday</span><span class="time">6:30 AM – 6:00 PM</span></div>
