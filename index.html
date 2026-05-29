@@ -115,9 +115,9 @@ section{padding:64px 20px;}
 .hours-row:last-child{border-bottom:none;}
 .hours-row .day{font-weight:700;color:var(--d1);}
 .hours-row .time{color:#64748b;}
-.hours-row.today{background:#fef2f2;}
-.hours-row.today .day{color:var(--r);}
-.hours-row.today .time{color:var(--r);font-weight:700;}
+.hours-row.today{background:transparent;}
+.hours-row.today .day{color:var(--d1);}
+.hours-row.today .time{color:#64748b;font-weight:400;}
 
 /* ── VETERAN ── */
 .vet-banner{background:linear-gradient(135deg,var(--d1) 0%,#1e3a5f 100%);padding:40px 20px;text-align:center;}
@@ -203,6 +203,18 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   margin:0 auto;
 }
 
+
+/* ── CONTACT RED HEADER ── */
+.contact-red-header{
+  background:#b91c1c;
+  margin:-64px -20px 40px;
+  padding:64px 20px 32px;
+  text-align:center;
+}
+.contact-red-header .sl{color:rgba(255,255,255,0.75)!important;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+.contact-red-header .st{color:#ffffff!important;font-size:clamp(22px,4vw,32px);font-weight:900;margin-bottom:8px;line-height:1.2;}
+.contact-red-header .ss{color:rgba(255,255,255,0.82)!important;font-size:14px;max-width:500px;margin:0 auto;}
+
 </style>
 </head>
 <body>
@@ -229,7 +241,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
     <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/c389bdcd9_patriotheatingandcoolingpic9.webp');background-position:center center;background-size:cover;"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge"><img src="https://flagcdn.com/w20/us.png" alt="US" style="width:20px;height:auto;border-radius:2px;vertical-align:middle;"> Veteran-Owned &amp; Operated</div>
+    <div class="hero-badge"><img src="https://flagcdn.com/w40/us.png" alt="US" style="width:32px;height:auto;border-radius:3px;vertical-align:middle;"> Veteran-Owned &amp; Operated</div>
     <h1>Troy's Most Trusted<br><span>HVAC Contractor</span></h1>
     <p>"Protecting Your Comfort" — fast, honest heating and cooling service in Troy, AL. Same-day repairs, veteran integrity, prices that won't blow you away.</p>
     <div class="hero-btns">
@@ -248,7 +260,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 <!-- TRUST BAR -->
 <div class="trust">
   <span>&#9989; Licensed &amp; Insured</span>
-  <span><img src="https://flagcdn.com/w20/us.png" alt="US" style="width:20px;height:auto;border-radius:2px;vertical-align:middle;"> Veteran-Owned</span>
+  <span><img src="https://flagcdn.com/w40/us.png" alt="US" style="width:32px;height:auto;border-radius:3px;vertical-align:middle;"> Veteran-Owned</span>
   <span>&#9889; Same-Day Service</span>
   <span>&#128176; Honest Pricing</span>
   <span>&#127775; AL Cert. #18123</span>
@@ -414,16 +426,19 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- VETERAN BANNER -->
 <div class="vet-banner">
-  <div style="font-size:40px;margin-bottom:10px"><img src="https://flagcdn.com/w20/us.png" alt="US" style="width:20px;height:auto;border-radius:2px;vertical-align:middle;"></div>
+  <div style="font-size:40px;margin-bottom:10px"><img src="https://flagcdn.com/w40/us.png" alt="US" style="width:32px;height:auto;border-radius:3px;vertical-align:middle;"></div>
   <h3>Proudly Veteran-Owned &amp; Operated</h3>
   <p>"Protecting Your Comfort" &mdash; Wallace Atwell serves Troy with the same commitment he gave to his country.</p>
 </div>
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="sl">Get In Touch</div>
+  <div class="contact-red-header">
+    <div class="sl">Get In Touch</div>
   <div class="st" style="color:#fff">Request a Free Estimate</div>
   <div class="ss">We respond same day &mdash; usually within the hour.</div>
+  </div>
+  
   <form class="cform" onsubmit="hSub(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Phone Number" required>
