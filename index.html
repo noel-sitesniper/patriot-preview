@@ -10,11 +10,11 @@
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:64px;border-bottom:2px solid var(--r);}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 10px;height:56px;border-bottom:2px solid var(--r);}
 .nav-left{display:flex;align-items:center;gap:10px;}
 
 .nav-name{display:flex;flex-direction:column;}
-.nav-name span{font-size:13px;font-weight:800;color:#fff;line-height:1.2;white-space:nowrap;}
+.nav-name span{font-size:12px;font-weight:800;color:#fff;line-height:1.2;white-space:nowrap;}
 .nav-name small{font-size:10px;color:#94a3b8;}
 .nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
@@ -24,7 +24,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;will-change:opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);}
 .hero-slide.active{opacity:1;}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.84) 0%,rgba(185,28,28,0.25) 100%);}
-.hero-content{position:relative;z-index:2;padding:0 28px;max-width:620px;margin-top:64px;}
+.hero-content{position:relative;z-index:2;padding:0 24px;max-width:620px;margin-top:64px;width:100%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.18);border:1px solid var(--g);color:var(--g);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
 .hero h1{font-size:clamp(26px,5.5vw,48px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;}
 .hero h1 span{color:var(--r);}
@@ -59,7 +59,7 @@ section{padding:64px 20px;}
 .ss{text-align:center;color:#64748b;font-size:14px;max-width:500px;margin:0 auto 36px;line-height:1.6;}
 
 /* ── SERVICES (accordion) ── */
-.svc-section{background:#ffffff;}
+.svc-section{background:#ffffff;padding:0 0 48px;overflow:hidden;}
 .svc-groups{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
 .svc-group{background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
 .svc-group-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:#fff;border:none;width:100%;text-align:left;font-family:inherit;}
@@ -87,7 +87,7 @@ section{padding:64px 20px;}
 @keyframes slideLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* ── REVIEWS CAROUSEL ── */
-.reviews-section{background:#ffffff;overflow:hidden;}
+.reviews-section{background:#ffffff;padding:0 0 48px;overflow:hidden;}
 .rev-outer{overflow:hidden;position:relative;}
 .rev-inner{display:flex;gap:16px;padding:0 20px;width:max-content;animation:slideLeft 40s linear infinite;}
 .rev-inner:hover{animation-play-state:paused;}
@@ -109,7 +109,7 @@ section{padding:64px 20px;}
 .about-cert{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#fcd34d;}
 
 /* ── HOURS ── */
-.hours-section{background:#ffffff;}
+.hours-section{background:#ffffff;padding:0 0 48px;overflow:hidden;}
 .hours-table{max-width:400px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;background:#fff;}
 .hours-row{display:flex;justify-content:space-between;padding:11px 20px;border-bottom:1px solid #f1f5f9;font-size:14px;}
 .hours-row:last-child{border-bottom:none;}
@@ -125,7 +125,7 @@ section{padding:64px 20px;}
 .vet-banner p{font-size:13px;color:#94a3b8;max-width:420px;margin:0 auto;}
 
 /* ── CONTACT ── */
-.contact-section{background:var(--d2);padding:64px 20px;}
+.contact-section{background:var(--d2);padding:0 20px 64px;overflow:hidden;}
 .contact-section .sl{color:var(--g);}
 .contact-section .st{color:#fff;}
 .contact-section .ss{color:#94a3b8;}
@@ -179,8 +179,12 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 /* ── RED SECTION HEADERS ── */
 .section-red-header{
   background:#b91c1c;
-  padding:40px 20px 28px;
+  padding:40px 0 28px;
   text-align:center;
+  width:100%;
+  box-sizing:border-box;
+  margin-left:0;
+  margin-right:0;
 }
 .section-red-header .sl{
   color:rgba(255,255,255,0.75) !important;
@@ -196,6 +200,10 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   font-weight:900;
   margin-bottom:8px;
   line-height:1.2;
+  display:inline-block;
+  background:rgba(255,255,255,0.15);
+  padding:6px 24px;
+  border-radius:6px;
 }
 .section-red-header .ss{
   color:rgba(255,255,255,0.82) !important;
@@ -207,13 +215,34 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 /* ── CONTACT RED HEADER ── */
 .contact-red-header{
   background:#b91c1c;
-  margin:-64px -20px 40px;
-  padding:64px 20px 32px;
+  margin:0 0 40px 0;
+  padding:52px 20px 32px;
   text-align:center;
+  width:100%;
+  box-sizing:border-box;
 }
 .contact-red-header .sl{color:rgba(255,255,255,0.75)!important;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
 .contact-red-header .st{color:#ffffff!important;font-size:clamp(22px,4vw,32px);font-weight:900;margin-bottom:8px;line-height:1.2;}
 .contact-red-header .ss{color:rgba(255,255,255,0.82)!important;font-size:14px;max-width:500px;margin:0 auto;}
+
+
+@media(max-width:420px){
+  nav{padding:0 8px;height:54px;}
+  .nav-name span{font-size:11px;}
+  .nav-name small{font-size:9px;}
+  .nav-cta{padding:7px 12px;font-size:12px;}
+  nav img[alt="US Flag"]{width:26px!important;}
+  .nav-left{gap:7px;}
+}
+
+
+@media(max-width:600px){
+  .hero-content{padding:0 20px;text-align:left;}
+  .hero-content h1{font-size:clamp(28px,8vw,42px);}
+  .hero-content p{font-size:14px;}
+  .hero-btns{flex-direction:column;gap:10px;width:100%;}
+  .hero-btns a,.hero-btns button{width:100%;text-align:center;justify-content:center;}
+}
 
 </style>
 </head>
@@ -331,8 +360,8 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- PHOTOS CAROUSEL -->
 <section class="photos-section">
-  <div class="sl">Our Work</div>
-  <div class="st">See Us In Action</div>
+  <div class="sl" style="color:rgba(255,255,255,0.75);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-align:center;padding-top:40px;margin-bottom:6px;">Our Work</div>
+  <div class="st" style="color:#fff;text-align:center;font-size:clamp(22px,4vw,32px);font-weight:900;display:inline-block;background:rgba(255,255,255,0.15);padding:6px 24px;border-radius:6px;margin:0 auto 28px;display:block;">See Us In Action</div>
   <div class="carousel-outer">
     <div class="carousel-inner" id="photoCarousel">
       <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/3e75148d2_patriotheatingandcoolingpic1.webp" alt="Patriot Heating &amp; Cooling job photo 1">
@@ -387,8 +416,8 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
-  <div class="sl">About Us</div>
-  <div class="st">About Patriot Heating &amp; Cooling, LLC</div>
+  <div class="sl" style="color:rgba(255,255,255,0.75);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-align:center;padding-top:48px;margin-bottom:6px;">About Us</div>
+  <div class="st" style="color:#fff;text-align:center;font-size:clamp(22px,4vw,32px);font-weight:900;display:inline-block;background:rgba(255,255,255,0.15);padding:6px 24px;border-radius:6px;margin:0 auto 28px;display:block;">About Patriot Heating &amp; Cooling, LLC</div>
   <div class="about-inner">
     <div class="about-logo-centered">
       <div class="about-logo-row">
@@ -410,7 +439,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 <section class="hours-section" id="hours">
   <div class="section-red-header">
   <div class="sl">Business Hours</div>
-  <div class="st">When We're Available</div>
+  <div class="st">When We Are Available</div>
 </div>
 
   <div class="hours-table">
