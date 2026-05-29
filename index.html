@@ -19,7 +19,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
 /* ── HERO SLIDESHOW ── */
-.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:flex-start;overflow:hidden;padding-top:120px;padding-bottom:56px;}
+.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:center;overflow:hidden;padding-top:0;padding-bottom:80px;}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;will-change:opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);}
 .hero-slide.active{opacity:1;}
@@ -125,7 +125,7 @@ section{padding:64px 20px;}
 .cform select option{color:#111;background:#fff;}
 .cform textarea{height:100px;resize:vertical;}
 .cform button{background:var(--r);color:#fff;border:none;padding:14px;border-radius:8px;font-weight:800;font-size:15px;cursor:pointer;}
-.cinfo{max-width:500px;margin:24px auto 0;display:flex;flex-direction:column;gap:12px;}
+.cinfo{max-width:500px;margin:24px auto 0;display:flex;flex-direction:column;gap:12px;color:#cbd5e1;font-size:14px;}
 
 
 
@@ -204,7 +204,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 @media(max-width:600px){
-  .hero{align-items:flex-start;padding-top:100px;padding-bottom:56px;}
+  .hero{align-items:center;padding-top:0;padding-bottom:80px;}
   .hero-content{text-align:center;padding:0 16px;margin-top:0;}
   .hero-badge{margin-left:auto;margin-right:auto;}
   .hero-btns{flex-direction:column;width:100%;align-items:center;}
