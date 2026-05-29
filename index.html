@@ -220,10 +220,19 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 }
 
 
-/* ── DESKTOP: static hero (first slide only) ── */
+/* ── DESKTOP: static hero (pic8 — tech on ladder) ── */
 @media(min-width:769px){
   .hero-slide { opacity: 0 !important; transition: none !important; }
-  .hero-slide:first-child { opacity: 1 !important; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('https://media.base44.com/images/public/69f101b202433ed2711860d0/7ee4c9ad3_patriotheatingandcoolingpic8.webp');
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+  }
+  .hero-overlay, .hero-content { position: relative; z-index: 1; }
 }
 </style>
 </head>
