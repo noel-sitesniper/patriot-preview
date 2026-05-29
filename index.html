@@ -19,7 +19,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
 /* ── HERO SLIDESHOW ── */
-.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:center;overflow:hidden;padding-top:56px;padding-bottom:56px;}
+.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:flex-start;overflow:hidden;padding-top:120px;padding-bottom:56px;}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;will-change:opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);}
 .hero-slide.active{opacity:1;}
@@ -172,7 +172,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 /* ── CONTACT RED HEADER ── */
 .contact-red-header{
-  background:#b91c1c;
+  background:transparent;
   margin:0 0 40px 0;
   padding:52px 20px 32px;
   text-align:center;
@@ -204,7 +204,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 @media(max-width:600px){
-  .hero{align-items:center;padding-top:56px;padding-bottom:56px;}
+  .hero{align-items:flex-start;padding-top:100px;padding-bottom:56px;}
   .hero-content{text-align:center;padding:0 16px;margin-top:0;}
   .hero-badge{margin-left:auto;margin-right:auto;}
   .hero-btns{flex-direction:column;width:100%;align-items:center;}
@@ -464,5 +464,53 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 </footer>
 
 
+
+<script>
+// ── SLIDESHOW ──
+(function(){
+  var slides = document.querySelectorAll('.hero-slide');
+  var idx = 0;
+  if(slides.length <= 1) return;
+  function next(){
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }
+  setInterval(next, 4000);
+})();
+
+// ── ACCORDION ──
+function toggleGroup(btn){
+  var grp = btn.closest('.svc-group');
+  var wasOpen = grp.classList.contains('open');
+  document.querySelectorAll('.svc-group').forEach(function(g){ g.classList.remove('open'); });
+  if(!wasOpen) grp.classList.add('open');
+}
+
+// ── TIMER ──
+(function(){
+  var KEY='ph_timer_v5';
+  var DURATION=48*3600;
+  var stored=localStorage.getItem(KEY);
+  var end;
+  if(stored){ end=parseInt(stored); } else { end=Math.floor(Date.now()/1000)+DURATION; localStorage.setItem(KEY,end); }
+  function tick(){
+    var left=end-Math.floor(Date.now()/1000);
+    if(left<0)left=0;
+    var h=Math.floor(left/3600),m=Math.floor((left%3600)/60),s=left%60;
+    var hEl=document.getElementById('th'),mEl=document.getElementById('tm'),sEl=document.getElementById('ts');
+    if(hEl) hEl.textContent=String(h).padStart(2,'0');
+    if(mEl) mEl.textContent=String(m).padStart(2,'0');
+    if(sEl) sEl.textContent=String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+// ── FORM SUBMIT ──
+function hSub(e){
+  e.preventDefault();
+  e.target.innerHTML='<div style="color:#4ade80;text-align:center;padding:24px;font-size:15px">&#9989; Request sent! We'll call you within the hour.</div>';
+}
+</script>
 </body>
 </html>
