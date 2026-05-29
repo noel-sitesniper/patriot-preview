@@ -19,12 +19,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
 /* ── HERO SLIDESHOW ── */
-.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:center;overflow:hidden;}
+.hero{position:relative;height:90vh;min-height:480px;min-height:580px;display:flex;align-items:center;overflow:hidden;padding-bottom:40px;}
 .hero-slides{position:absolute;inset:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center 40%;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;will-change:opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0);}
 .hero-slide.active{opacity:1;}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.84) 0%,rgba(185,28,28,0.25) 100%);}
-.hero-content{position:relative;z-index:2;padding:0 24px;max-width:620px;margin-top:64px;width:100%;}
+.hero-content{position:relative;z-index:2;padding:0 24px;max-width:620px;margin-top:20px;width:100%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.18);border:1px solid var(--g);color:var(--g);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
 .hero h1{font-size:clamp(26px,5.5vw,48px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;}
 .hero h1 span{color:var(--r);}
@@ -39,18 +39,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 .hero-stat .l{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.4px;}
 
 /* ── TRUST BAR ── */
-.trust{background:var(--r);padding:9px 20px;display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;}
+.trust{background:var(--d1);padding:12px 20px;display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);border-bottom:3px solid var(--r);}
 .trust span{color:#fff;font-size:12px;font-weight:700;}
-
-/* ── TIMER ── */
-.tbar{background:var(--d1);padding:14px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);}
-.tbar .tl{color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
-.tdigs{display:flex;justify-content:center;gap:8px;}
-.tu{text-align:center;}
-.tu .tn{background:rgba(185,28,28,0.2);border:1px solid rgba(185,28,28,0.4);color:#fff;font-size:20px;font-weight:900;padding:6px 12px;border-radius:6px;display:inline-block;min-width:46px;font-variant-numeric:tabular-nums;}
-.tu .tll{font-size:9px;color:#64748b;text-transform:uppercase;margin-top:3px;}
-.tsep{display:flex;align-items:center;padding-bottom:14px;color:#475569;font-weight:900;font-size:18px;}
-.tnote{color:#f59e0b;font-size:11px;margin-top:8px;font-weight:600;}
 
 /* ── SECTIONS ── */
 section{padding:64px 20px;}
@@ -138,10 +128,7 @@ section{padding:64px 20px;}
 .cinfo{max-width:500px;margin:24px auto 0;display:flex;flex-direction:column;gap:12px;}
 .ci{display:flex;align-items:center;gap:10px;color:#cbd5e1;font-size:14px;}
 
-/* ── PRICING STRIP ── */
-.pstrip{background:linear-gradient(90deg,var(--r),#7f1d1d);padding:12px 20px;text-align:center;}
-.pstrip p{color:#fff;font-size:13px;}
-.pstrip strong{font-size:16px;}
+
 
 /* ── FOOTER ── */
 footer{background:var(--d1);padding:24px 20px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);}
@@ -244,6 +231,23 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   .hero-btns a,.hero-btns button{width:100%;text-align:center;justify-content:center;}
 }
 
+
+@media(max-width:600px){
+  .hero{align-items:center;}
+  .hero-content{text-align:center;padding:0 16px;margin-top:0;}
+  .hero-badge{margin-left:auto;margin-right:auto;}
+  .hero-btns{flex-direction:column;width:100%;align-items:center;}
+  .hero-btns a,.hero-btns button{width:100%;max-width:320px;justify-content:center;text-align:center;display:flex;align-items:center;}
+  .hero-content h1{font-size:clamp(26px,7.5vw,40px);}
+  .hero-content p{font-size:14px;}
+}
+
+
+@media(max-width:480px){
+  .ci{font-size:12px;}
+  .cinfo{padding:0 4px;}
+}
+
 </style>
 </head>
 <body>
@@ -293,19 +297,6 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   <span>&#9889; Same-Day Service</span>
   <span>&#128176; Honest Pricing</span>
   <span>&#127775; AL Cert. #18123</span>
-</div>
-
-<!-- TIMER -->
-<div class="tbar">
-  <div class="tl">&#128293; This site offer expires in</div>
-  <div class="tdigs">
-    <div class="tu"><div class="tn" id="th">47</div><div class="tll">Hours</div></div>
-    <div class="tsep">:</div>
-    <div class="tu"><div class="tn" id="tm">59</div><div class="tll">Mins</div></div>
-    <div class="tsep">:</div>
-    <div class="tu"><div class="tn" id="ts">59</div><div class="tll">Secs</div></div>
-  </div>
-  <div class="tnote">Your custom site is reserved &#8212; claim it before it&#8217;s offered to a competitor</div>
 </div>
 
 <!-- SERVICES -->
@@ -489,15 +480,10 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   <div class="cinfo">
     <div class="ci">&#128205; 2973 County Road 1107, Troy, AL 36081</div>
     <div class="ci">&#128222; (334) 372-8823</div>
-    <div class="ci">&#128336; Mon–Fri 6:30AM–6PM &bull; Sat 7AM–4PM &bull; Sun 12–3PM</div>
+    <div class="ci">&#128336; M–F 6:30AM–6PM · Sat 7AM–4PM · Sun 12–3PM</div>
     <div class="ci">&#127775; AL Certification #18123</div>
   </div>
 </section>
-
-<!-- PRICING STRIP -->
-<div class="pstrip">
-  <p>This professional website: <strong>$750 one-time</strong> setup &nbsp;|&nbsp; $100/mo hosting after 30-day free trial</p>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -578,24 +564,7 @@ function getBotReply(msg) {
 
 // ── HERO SLIDESHOW ──
 var slides = document.querySelectorAll('.hero-slide'), cur = 0;
-setInterval(function(){
-  slides[cur].classList.remove('active');
-  cur = (cur + 1) % slides.length;
-  slides[cur].classList.add('active');
-}, 4500);
-
-// ── COUNTDOWN TIMER ──
-(function(){
-  var K='patriot_v2', s=localStorage.getItem(K), e;
-  if(s){e=parseInt(s);}else{e=Date.now()+48*3600*1000;localStorage.setItem(K,e);}
-  function t(){
-    var d=Math.max(0,e-Date.now());
-    document.getElementById('th').textContent=String(Math.floor(d/3600000)).padStart(2,'0');
-    document.getElementById('tm').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');
-    document.getElementById('ts').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');
-  }
-  t(); setInterval(t,1000);
-})();
+setInterval
 
 // ── HIGHLIGHT TODAY'S HOURS ──
 (function(){
