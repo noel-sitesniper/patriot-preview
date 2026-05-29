@@ -1,8 +1,4 @@
-<!DOCT
-    <div class="hero-slide desktop-slide active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide desktop-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide desktop-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide desktop-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png');background-position:center center;background-size:cover;"></div>YPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -224,22 +220,14 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 }
 
 
-/* ── DESKTOP: hero slideshow (same as mobile) ── */
+
 
 /* ci-hours: smaller on mobile to prevent wrap */
 @media(max-width:480px){
   .ci-hours { font-size:12px !important; }
 }
 
-/* ── MOBILE slides: show on ≤768px only ── */
-.mobile-slide { display: block; }
-.desktop-slide { display: none; }
-@media(min-width:769px){
-  .mobile-slide { display: none !important; opacity: 0 !important; }
-  .desktop-slide { display: block; }
-}
-@media(max-width:768px){
-  .desktop-slide { display: none !important; opacity: 0 !important; }
+
   .mobile-slide { display: block; }
 }
 </style>
@@ -261,11 +249,11 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slides">
-    <div class="hero-slide mobile-slide active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/773b020f8_patriotheatingandcoolingpic2.webp');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide mobile-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/8cd2aeb15_patriotheatingandcoolingpic5.webp');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide mobile-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/6a85d61f0_patriotheatingandcoolingpic6.webp');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide mobile-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/037a24233_patriotheatingandcoolingpic7.webp');background-position:center center;background-size:cover;"></div>
-    <div class="hero-slide mobile-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/c389bdcd9_patriotheatingandcoolingpic9.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/773b020f8_patriotheatingandcoolingpic2.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/8cd2aeb15_patriotheatingandcoolingpic5.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/6a85d61f0_patriotheatingandcoolingpic6.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/037a24233_patriotheatingandcoolingpic7.webp');background-position:center center;background-size:cover;"></div>
+    
   </div>
   <div class="hero-content">
     <div class="hero-badge"><img src="https://flagcdn.com/w40/us.png" alt="US" style="width:32px;height:auto;border-radius:3px;vertical-align:middle;"> Veteran-Owned &amp; Operated</div>
@@ -491,29 +479,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 <script>
-// ── SLIDESHOW (filters by visible set per breakpoint) ──
-(function(){
-  function getVisibleSlides(){
-    return Array.from(document.querySelectorAll('.hero-slide')).filter(function(el){
-      return window.getComputedStyle(el).display !== 'none';
-    });
-  }
-  var idx = 0;
-  var slides = getVisibleSlides();
-  if(slides.length <= 1) return;
-  function next(){
-    slides = getVisibleSlides();
-    if(!slides.length) return;
-    slides[idx % slides.length].classList.remove('active');
-    idx = (idx + 1) % slides.length;
-    slides[idx].classList.add('active');
-    // make sure first of set starts active
-  }
-  // Initialize correct set
-  slides.forEach(function(s){ s.classList.remove('active'); });
-  slides[0].classList.add('active');
-  setInterval(next, 4000);
-})();
+
 
 // ── ACCORDION ──
 function toggleGroup(btn){
@@ -547,6 +513,34 @@ function hSub(e){
   e.preventDefault();
   e.target.innerHTML='<div style="color:#4ade80;text-align:center;padding:24px;font-size:15px">&#9989; Request sent! We\'ll call you within the hour.</div>';
 }
+// ── SLIDESHOW with desktop/mobile URL swap ──
+(function(){
+  var stockUrls = ["https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png", "https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png", "https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png", "https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png"];
+  var bizUrls   = ["https://media.base44.com/images/public/69f101b202433ed2711860d0/773b020f8_patriotheatingandcoolingpic2.webp", "https://media.base44.com/images/public/69f101b202433ed2711860d0/8cd2aeb15_patriotheatingandcoolingpic5.webp", "https://media.base44.com/images/public/69f101b202433ed2711860d0/6a85d61f0_patriotheatingandcoolingpic6.webp", "https://media.base44.com/images/public/69f101b202433ed2711860d0/037a24233_patriotheatingandcoolingpic7.webp"];
+  var slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+
+  function loadUrls(){
+    var urls = window.innerWidth >= 769 ? stockUrls : bizUrls;
+    slides.forEach(function(s, i){
+      s.style.backgroundImage = "url('" + urls[i] + "')";
+      s.style.backgroundSize  = 'cover';
+      s.style.backgroundPosition = 'center center';
+    });
+  }
+
+  loadUrls();
+  window.addEventListener('resize', loadUrls);
+
+  var idx = 0;
+  slides[0].classList.add('active');
+  function next(){
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }
+  setInterval(next, 4000);
+})();
 </script>
 </body>
 </html>
