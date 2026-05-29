@@ -220,19 +220,11 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 }
 
 
-/* ── DESKTOP: static hero (pic8 — tech on ladder) ── */
-@media(min-width:769px){
-  .hero-slide { opacity: 0 !important; transition: none !important; }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('https://media.base44.com/images/public/69f101b202433ed2711860d0/7ee4c9ad3_patriotheatingandcoolingpic8.webp');
-    background-size: cover;
-    background-position: center top;
-    z-index: 0;
-  }
-  .hero-overlay, .hero-content { position: relative; z-index: 1; }
+/* ── DESKTOP: hero slideshow (same as mobile) ── */
+
+/* ci-hours: smaller on mobile to prevent wrap */
+@media(max-width:480px){
+  .ci-hours { font-size:12px !important; }
 }
 </style>
 </head>
@@ -440,8 +432,10 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="contact-red-header">
+  <div style="display:inline-block;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.18);border-radius:16px;padding:16px 32px 18px;margin-bottom:16px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);">
     <div class="sl">Get In Touch</div>
-  <div class="st" style="color:#fff">Request a Free Estimate</div>
+    <div class="st" style="color:#fff">Request a Free Estimate</div>
+  </div>
   <div class="ss">We respond same day &mdash; usually within the hour.</div>
   </div>
   
@@ -466,7 +460,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   <div class="cinfo">
     <div class="ci">&#128205; 2973 County Road 1107, Troy, AL 36081</div>
     <div class="ci">&#128222; (334) 372-8823</div>
-    <div class="ci">&#128336; Mon–Fri 6:30AM–6PM · Sat 7AM–4PM · Sun 12–3PM</div>
+    <div class="ci ci-hours">&#128336; M–F 6:30–6PM &nbsp;·&nbsp; Sat 7–4PM &nbsp;·&nbsp; Sun 12–3PM</div>
     <div class="ci">&#127775; AL Certification #18123</div>
   </div>
 </section>
@@ -481,10 +475,8 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 <script>
-// ── SLIDESHOW (mobile only) ──
+// ── SLIDESHOW (all screens) ──
 (function(){
-  // Only run slideshow on mobile/tablet (≤768px)
-  if(window.innerWidth > 768) return;
   var slides = document.querySelectorAll('.hero-slide');
   var idx = 0;
   if(slides.length <= 1) return;
