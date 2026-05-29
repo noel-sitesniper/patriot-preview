@@ -126,42 +126,13 @@ section{padding:64px 20px;}
 .cform textarea{height:100px;resize:vertical;}
 .cform button{background:var(--r);color:#fff;border:none;padding:14px;border-radius:8px;font-weight:800;font-size:15px;cursor:pointer;}
 .cinfo{max-width:500px;margin:24px auto 0;display:flex;flex-direction:column;gap:12px;}
-.ci{display:flex;align-items:center;gap:10px;color:#cbd5e1;font-size:14px;}
+
 
 
 
 /* ── FOOTER ── */
 footer{background:var(--d1);padding:24px 20px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);}
 footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
-
-/* ── CHAT ── */
-#cb{position:fixed;bottom:20px;right:20px;z-index:9999;width:54px;height:54px;border-radius:50%;background:var(--r);box-shadow:0 4px 18px rgba(185,28,28,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;border:none;}
-#cbox{position:fixed;bottom:84px;right:20px;z-index:9998;width:310px;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,0.18);overflow:hidden;display:none;flex-direction:column;}
-#cbox.open{display:flex;}
-.ch{background:var(--d1);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
-.chi{display:flex;align-items:center;gap:8px;}
-.ca{width:36px;height:36px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:16px;overflow:hidden;}
-.ca img{width:100%;height:100%;object-fit:cover;}
-.ch h4{font-size:13px;font-weight:700;margin-bottom:1px;}
-.ch small{font-size:10px;color:#94a3b8;}
-.cc{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:18px;}
-.cm{padding:14px;flex:1;min-height:160px;max-height:240px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
-.mb{max-width:85%;}
-.mb.bot .b{background:#f1f5f9;color:#1e293b;border-radius:14px 14px 14px 2px;padding:10px 13px;font-size:13px;line-height:1.5;}
-.mb.usr{align-self:flex-end;}
-.mb.usr .b{background:var(--r);color:#fff;border-radius:14px 14px 2px 14px;padding:10px 13px;font-size:13px;}
-.cir{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #f1f5f9;}
-.cir input{flex:1;padding:9px 12px;border-radius:8px;border:1px solid #e2e8f0;font-size:13px;outline:none;}
-.cs{background:var(--r);color:#fff;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-size:15px;}
-
-@media(max-width:480px){
-  .hero-stats{flex-wrap:wrap;}
-  .hero-stat{flex:0 0 50%;border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);}
-  .hero-stat:nth-child(even){border-left:1px solid rgba(255,255,255,0.07);}
-  .hero-stat:last-child{flex:0 0 100%;border-bottom:none;}
-  #cbox{width:calc(100vw - 40px);}
-  .about-logo{width:100%;}
-}
 
 /* ── RED SECTION HEADERS ── */
 .section-red-header{
@@ -244,7 +215,7 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 
 
 @media(max-width:480px){
-  .ci{font-size:12px;}
+  
   .cinfo{padding:0 4px;}
 }
 
@@ -492,114 +463,6 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
   <p style="font-size:10px;color:#334155;margin-top:8px">Preview by SiteSniper &middot; sitesniper.pro</p>
 </footer>
 
-<!-- CHAT BUBBLE -->
-<button id="cb" onclick="tChat()">&#128172;</button>
-<div id="cbox">
-  <div class="ch">
-    <div class="chi">
-      <div class="ca"><img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="logo"></div>
-      <div><h4>Patriot H&amp;C</h4><small>&#127381; Usually replies fast</small></div>
-    </div>
-    <button class="cc" onclick="tChat()">&#10005;</button>
-  </div>
-  <div class="cm" id="cmsgs">
-    <div class="mb bot"><div class="b">Hey! &#128075; Welcome to Patriot Heating &amp; Cooling. How can we help you today?</div></div>
-  </div>
-  <div class="cir">
-    <input type="text" id="cin" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')sChat()">
-    <button class="cs" onclick="sChat()">&#10148;</button>
-  </div>
-</div>
 
-<script>
-// ── KNOWLEDGE BASE ──
-var KB = {
-  phone: "(334) 372-8823",
-  address: "2973 County Road 1107, Troy, AL 36081",
-  hours: {
-    monday:"6:30 AM – 6:00 PM", tuesday:"6:30 AM – 6:00 PM", wednesday:"6:30 AM – 6:00 PM",
-    thursday:"6:30 AM – 6:00 PM", friday:"6:30 AM – 6:00 PM", saturday:"7:00 AM – 4:00 PM", sunday:"12:00 PM – 3:00 PM"
-  },
-  services: ["AC Repair","Heating Repair","New AC Installation","New Heating Installation","Mini-Split Systems","Thermostat Upgrades","Maintenance & Tune-Ups","Ductwork Inspection","Emergency Service Calls","Refrigerant Recharge","Filter Replacement","System Replacement"],
-  about: "Patriot Heating & Cooling, LLC is a veteran-owned and operated business in Troy, AL. Wallace Atwell has 20+ years of HVAC experience. AL Certification #18123. Licensed and insured.",
-  tagline: "Protecting Your Comfort",
-  rating: "4.9 stars with 63 Google reviews",
-  certifications: "Alabama HVAC Certification #18123, Licensed & Insured, Veteran-Owned"
-};
-
-function getBotReply(msg) {
-  var m = msg.toLowerCase();
-  if(m.match(/hour|open|close|time|when|schedule/)) {
-    return "Our hours are: Mon–Fri 6:30 AM–6:00 PM, Saturday 7:00 AM–4:00 PM, Sunday 12:00–3:00 PM. Give us a call anytime at "+KB.phone+"!";
-  }
-  if(m.match(/phone|call|number|contact/)) {
-    return "You can reach us at "+KB.phone+". Wallace personally answers — usually on the first couple of rings!";
-  }
-  if(m.match(/address|location|where|directions/)) {
-    return "We're located at "+KB.address+". We also serve the surrounding Troy, AL area.";
-  }
-  if(m.match(/service|offer|do you|fix|repair|install|mini.?split|thermostat|furnace|heat pump|duct/)) {
-    return "We handle: "+KB.services.slice(0,6).join(", ")+" and more! Call us at "+KB.phone+" for a free estimate.";
-  }
-  if(m.match(/price|cost|how much|charge|fee|estimate/)) {
-    return "We offer free estimates and our pricing is among the best in Troy! Give us a call at "+KB.phone+" and Wallace will give you an honest quote.";
-  }
-  if(m.match(/veteran|military|owned/)) {
-    return "Yes! Patriot is proudly veteran-owned and operated by Wallace Atwell. We bring military discipline and integrity to every job.";
-  }
-  if(m.match(/emergency|urgent|asap|right now|today|same.?day/)) {
-    return "We prioritize same-day and emergency calls! Call us right now at "+KB.phone+" and we'll get someone out as fast as possible.";
-  }
-  if(m.match(/review|rating|star|reputation/)) {
-    return "We're rated "+KB.rating+"! Our customers love us for our honesty, fast response, and fair pricing.";
-  }
-  if(m.match(/certif|licens|insur/)) {
-    return "We're fully licensed and insured — "+KB.certifications+".";
-  }
-  if(m.match(/about|who|wallace|owner|company/)) {
-    return KB.about+" "+KB.tagline+"!";
-  }
-  return "Great question! For the fastest answer, call Wallace directly at "+KB.phone+". He answers personally and can give you an honest answer right away. &#128295;";
-}
-
-// ── HERO SLIDESHOW ──
-var slides = document.querySelectorAll('.hero-slide'), cur = 0;
-setInterval
-
-// ── HIGHLIGHT TODAY'S HOURS ──
-(function(){
-  var days=['h-sun','h-mon',null,null,null,'h-fri','h-sat'];
-  var d = new Date().getDay();
-  var id = days[d];
-  if(id){var el=document.getElementById(id);if(el)el.classList.add('today');}
-})();
-
-// ── SERVICES ACCORDION ──
-function toggleGroup(btn){
-  var group = btn.parentElement;
-  group.classList.toggle('open');
-}
-
-// ── CHAT ──
-function tChat(){document.getElementById('cbox').classList.toggle('open');}
-function sChat(){
-  var inp=document.getElementById('cin');
-  var val=inp.value.trim();
-  if(!val)return;
-  var msgs=document.getElementById('cmsgs');
-  msgs.innerHTML+='<div class="mb usr"><div class="b">'+val+'</div></div>';
-  inp.value='';msgs.scrollTop=9999;
-  setTimeout(function(){
-    msgs.innerHTML+='<div class="mb bot"><div class="b">'+getBotReply(val)+'</div></div>';
-    msgs.scrollTop=9999;
-  },700);
-}
-
-// ── CONTACT FORM ──
-function hSub(e){
-  e.preventDefault();
-  e.target.innerHTML='<div style="color:#34d399;font-weight:700;text-align:center;padding:24px;font-size:15px">&#9989; Request sent! We\'ll call you within the hour.</div>';
-}
-</script>
 </body>
 </html>
