@@ -21,7 +21,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.9
 /* ── HERO SLIDESHOW ── */
 .hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:center;overflow:hidden;}
 .hero-slides{position:absolute;inset:0;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center center;background-repeat:no-repeat;opacity:0;transition:opacity 1.4s ease;image-rendering:high-quality;}
 .hero-slide.active{opacity:1;}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.84) 0%,rgba(185,28,28,0.25) 100%);}
 .hero-content{position:relative;z-index:2;padding:0 28px;max-width:620px;margin-top:64px;}
@@ -194,11 +194,11 @@ footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slides">
-    <div class="hero-slide  active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/3e75148d2_patriotheatingandcoolingpic1.webp')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/773b020f8_patriotheatingandcoolingpic2.webp')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/e4c9edf6e_patriotheatingandcoolingpic3.webp')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/5fe1ffb4f_patriotheatingandcoolingpic4.webp')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/8cd2aeb15_patriotheatingandcoolingpic5.webp')"></div>
+    <div class="hero-slide  active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/773b020f8_patriotheatingandcoolingpic2.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/8cd2aeb15_patriotheatingandcoolingpic5.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/6a85d61f0_patriotheatingandcoolingpic6.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/037a24233_patriotheatingandcoolingpic7.webp');background-position:center center;background-size:cover;"></div>
+    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/c389bdcd9_patriotheatingandcoolingpic9.webp');background-position:center center;background-size:cover;"></div>
   </div>
   <div class="hero-content">
     <div class="hero-badge">&#127482;&#127480; Veteran-Owned &amp; Operated</div>
