@@ -5,547 +5,542 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Patriot Heating & Cooling, LLC — Troy, AL</title>
 <style>
-  :root {
-    --primary: #b91c1c;
-    --accent: #1d4ed8;
-    --dark1: #0d1b2a;
-    --dark2: #1a2e45;
-    --light: #f0f4ff;
-    --gold: #f59e0b;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#fff; color:#111; }
+:root{--r:#b91c1c;--d1:#0d1b2a;--d2:#1a2e45;--g:#f59e0b;--blue:#1d4ed8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#111;}
 
-  /* NAV */
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:999;
-    background:rgba(13,27,42,0.97); backdrop-filter:blur(8px);
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 20px; height:60px; border-bottom:2px solid var(--primary);
-  }
-  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-  .nav-logo .flag { font-size:22px; }
-  .nav-logo span { font-size:15px; font-weight:800; color:#fff; letter-spacing:0.3px; line-height:1.2; }
-  .nav-logo small { display:block; font-size:10px; color:#94a3b8; font-weight:400; }
-  .nav-cta {
-    background:var(--primary); color:#fff; border:none;
-    padding:9px 18px; border-radius:6px; font-weight:700; font-size:13px;
-    cursor:pointer; text-decoration:none; white-space:nowrap;
-  }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(13,27,42,0.97);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:64px;border-bottom:2px solid var(--r);}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-logo-img{height:46px;width:auto;object-fit:contain;}
+.nav-name{display:flex;flex-direction:column;}
+.nav-name span{font-size:13px;font-weight:800;color:#fff;line-height:1.2;white-space:nowrap;}
+.nav-name small{font-size:10px;color:#94a3b8;}
+.nav-cta{background:var(--r);color:#fff;padding:9px 16px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;}
 
-  /* HERO */
-  .hero {
-    position:relative; height:100vh; min-height:580px;
-    display:flex; align-items:center; overflow:hidden;
-  }
-  .hero-slides { position:absolute; inset:0; }
-  .hero-slide {
-    position:absolute; inset:0;
-    background-size:cover; background-position:center;
-    opacity:0; transition:opacity 1.2s ease;
-  }
-  .hero-slide.active { opacity:1; }
-  .hero-slide::after {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(135deg,rgba(13,27,42,0.82) 0%,rgba(185,28,28,0.3) 100%);
-  }
-  .hero-content {
-    position:relative; z-index:2; padding:0 28px; max-width:600px; margin-top:60px;
-  }
-  .hero-badge {
-    display:inline-flex; align-items:center; gap:6px;
-    background:rgba(245,158,11,0.2); border:1px solid var(--gold);
-    color:var(--gold); font-size:11px; font-weight:700; padding:5px 12px;
-    border-radius:20px; margin-bottom:16px; letter-spacing:1px; text-transform:uppercase;
-  }
-  .hero h1 {
-    font-size:clamp(26px,6vw,46px); font-weight:900; color:#fff; line-height:1.1;
-    margin-bottom:12px; text-shadow:0 2px 12px rgba(0,0,0,0.4);
-  }
-  .hero h1 span { color:var(--primary); }
-  .hero p {
-    font-size:clamp(13px,3vw,16px); color:#cbd5e1; margin-bottom:24px; line-height:1.6;
-  }
-  .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
-  .btn-primary {
-    background:var(--primary); color:#fff; padding:13px 24px;
-    border-radius:8px; font-weight:800; font-size:14px; text-decoration:none;
-    box-shadow:0 4px 18px rgba(185,28,28,0.5); transition:transform 0.2s;
-  }
-  .btn-primary:hover { transform:translateY(-2px); }
-  .btn-outline {
-    background:transparent; color:#fff; padding:13px 24px;
-    border-radius:8px; border:2px solid rgba(255,255,255,0.4);
-    font-weight:700; font-size:14px; text-decoration:none; transition:border-color 0.2s;
-  }
-  .btn-outline:hover { border-color:#fff; }
-  .hero-stats {
-    position:absolute; bottom:24px; left:0; right:0; z-index:2;
-    display:flex; justify-content:center; gap:0;
-    background:rgba(13,27,42,0.85); backdrop-filter:blur(6px);
-    border-top:1px solid rgba(255,255,255,0.08);
-  }
-  .hero-stat {
-    flex:1; max-width:160px; text-align:center; padding:14px 8px;
-    border-right:1px solid rgba(255,255,255,0.08);
-  }
-  .hero-stat:last-child { border-right:none; }
-  .hero-stat .num { font-size:22px; font-weight:900; color:var(--gold); }
-  .hero-stat .lbl { font-size:10px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px; }
+/* ── HERO SLIDESHOW ── */
+.hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:center;overflow:hidden;}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;}
+.hero-slide.active{opacity:1;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,42,0.84) 0%,rgba(185,28,28,0.25) 100%);}
+.hero-content{position:relative;z-index:2;padding:0 28px;max-width:620px;margin-top:64px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.18);border:1px solid var(--g);color:var(--g);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
+.hero h1{font-size:clamp(26px,5.5vw,48px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;}
+.hero h1 span{color:var(--r);}
+.hero p{font-size:clamp(13px,2.5vw,16px);color:#cbd5e1;margin-bottom:24px;line-height:1.65;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-r{background:var(--r);color:#fff;padding:13px 22px;border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 4px 18px rgba(185,28,28,0.45);}
+.btn-o{background:transparent;color:#fff;padding:13px 22px;border-radius:8px;border:2px solid rgba(255,255,255,0.35);font-weight:700;font-size:14px;text-decoration:none;}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;justify-content:center;background:rgba(13,27,42,0.9);border-top:1px solid rgba(255,255,255,0.07);}
+.hero-stat{flex:1;max-width:160px;text-align:center;padding:14px 6px;border-right:1px solid rgba(255,255,255,0.07);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat .n{font-size:20px;font-weight:900;color:var(--g);}
+.hero-stat .l{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.4px;}
 
-  /* TRUST BAR */
-  .trust-bar {
-    background:var(--primary); padding:10px 20px;
-    display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap;
-  }
-  .trust-item { color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; gap:5px; }
-  .trust-item .icon { font-size:15px; }
+/* ── TRUST BAR ── */
+.trust{background:var(--r);padding:9px 20px;display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;}
+.trust span{color:#fff;font-size:12px;font-weight:700;}
 
-  /* TIMER */
-  .timer-bar {
-    background:var(--dark1); padding:14px 20px; text-align:center;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-  }
-  .timer-label { color:#94a3b8; font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
-  .timer-digits { display:flex; justify-content:center; gap:10px; }
-  .timer-unit { text-align:center; }
-  .timer-unit .num {
-    background:rgba(185,28,28,0.2); border:1px solid rgba(185,28,28,0.4);
-    color:#fff; font-size:20px; font-weight:900; font-variant-numeric:tabular-nums;
-    padding:6px 12px; border-radius:6px; display:inline-block; min-width:46px;
-  }
-  .timer-unit .lbl { font-size:9px; color:#64748b; text-transform:uppercase; margin-top:3px; }
-  .timer-note { color:#f59e0b; font-size:11px; margin-top:8px; font-weight:600; }
+/* ── TIMER ── */
+.tbar{background:var(--d1);padding:14px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);}
+.tbar .tl{color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.tdigs{display:flex;justify-content:center;gap:8px;}
+.tu{text-align:center;}
+.tu .tn{background:rgba(185,28,28,0.2);border:1px solid rgba(185,28,28,0.4);color:#fff;font-size:20px;font-weight:900;padding:6px 12px;border-radius:6px;display:inline-block;min-width:46px;font-variant-numeric:tabular-nums;}
+.tu .tll{font-size:9px;color:#64748b;text-transform:uppercase;margin-top:3px;}
+.tsep{display:flex;align-items:center;padding-bottom:14px;color:#475569;font-weight:900;font-size:18px;}
+.tnote{color:#f59e0b;font-size:11px;margin-top:8px;font-weight:600;}
 
-  /* SECTIONS */
-  section { padding:60px 20px; }
-  .section-label {
-    text-align:center; font-size:11px; font-weight:700; letter-spacing:2px;
-    text-transform:uppercase; color:var(--primary); margin-bottom:8px;
-  }
-  .section-title {
-    text-align:center; font-size:clamp(22px,4vw,32px); font-weight:900;
-    color:var(--dark1); margin-bottom:8px; line-height:1.2;
-  }
-  .section-sub { text-align:center; color:#64748b; font-size:14px; max-width:480px; margin:0 auto 40px; }
+/* ── SECTIONS ── */
+section{padding:64px 20px;}
+.sl{text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--r);margin-bottom:8px;}
+.st{text-align:center;font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--d1);margin-bottom:8px;line-height:1.2;}
+.ss{text-align:center;color:#64748b;font-size:14px;max-width:500px;margin:0 auto 36px;line-height:1.6;}
 
-  /* SERVICES */
-  .services-section { background:#f8fafc; }
-  .services-grid {
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:14px; max-width:700px; margin:0 auto;
-  }
-  .service-card {
-    background:#fff; border-radius:12px; padding:20px 14px; text-align:center;
-    box-shadow:0 2px 12px rgba(0,0,0,0.06); border:1px solid #e2e8f0;
-    transition:transform 0.2s, box-shadow 0.2s;
-  }
-  .service-card:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(0,0,0,0.1); }
-  .service-card .icon { font-size:28px; margin-bottom:10px; display:block; }
-  .service-card .name { font-size:13px; font-weight:700; color:var(--dark1); }
+/* ── SERVICES (accordion) ── */
+.svc-section{background:#f8fafc;}
+.svc-groups{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+.svc-group{background:#fff;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.svc-group-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:#fff;border:none;width:100%;text-align:left;font-family:inherit;}
+.svc-group-header:hover{background:#fafafa;}
+.svc-group-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:var(--d1);}
+.svc-group-title .ico{font-size:20px;}
+.svc-arrow{color:#94a3b8;font-size:14px;transition:transform 0.3s;}
+.svc-group.open .svc-arrow{transform:rotate(180deg);}
+.svc-items{display:none;padding:0 20px 16px;border-top:1px solid #f1f5f9;}
+.svc-group.open .svc-items{display:block;}
+.svc-item{padding:10px 0;border-bottom:1px solid #f8fafc;display:flex;gap:10px;align-items:flex-start;}
+.svc-item:last-child{border-bottom:none;}
+.svc-item .dot{width:6px;height:6px;border-radius:50%;background:var(--r);margin-top:6px;flex-shrink:0;}
+.svc-item .name{font-size:13px;font-weight:700;color:var(--d1);margin-bottom:2px;}
+.svc-item .desc{font-size:12px;color:#64748b;line-height:1.5;}
 
-  /* PHOTOS */
-  .photos-section { background:var(--dark1); padding:60px 0; }
-  .photos-section .section-title { color:#fff; }
-  .photos-section .section-label { color:var(--gold); }
-  .carousel-wrap { overflow:hidden; }
-  .carousel-track {
-    display:flex; gap:12px; padding:0 20px;
-    overflow-x:auto; scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch; scrollbar-width:none;
-  }
-  .carousel-track::-webkit-scrollbar { display:none; }
-  .carousel-track img {
-    flex:0 0 260px; height:200px; border-radius:10px;
-    object-fit:cover; scroll-snap-align:start;
-    border:2px solid rgba(255,255,255,0.06);
-  }
-  @media(min-width:640px) {
-    .carousel-track img { flex:0 0 340px; height:240px; }
-  }
+/* ── PHOTO CAROUSEL (auto scroll) ── */
+.photos-section{background:var(--d1);padding:64px 0;}
+.photos-section .sl{color:var(--g);padding:0 20px;}
+.photos-section .st{color:#fff;padding:0 20px 24px;}
+.carousel-outer{overflow:hidden;position:relative;}
+.carousel-inner{display:flex;gap:12px;padding:0 20px;width:max-content;animation:slideLeft 28s linear infinite;}
+.carousel-inner:hover{animation-play-state:paused;}
+.carousel-inner img{width:300px;height:220px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,0.07);flex-shrink:0;}
+@keyframes slideLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-  /* REVIEWS */
-  .reviews-section { background:#f8fafc; }
-  .reviews-grid { display:grid; gap:16px; max-width:700px; margin:0 auto; }
-  .review-card {
-    background:#fff; border-radius:12px; padding:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.06); border-left:3px solid var(--primary);
-  }
-  .review-stars { color:var(--gold); font-size:14px; margin-bottom:8px; }
-  .review-text { font-size:13px; color:#374151; line-height:1.6; font-style:italic; margin-bottom:10px; }
-  .review-text::before { content:'\201C'; }
-  .review-text::after { content:'\201D'; }
-  .review-author { font-size:12px; font-weight:700; color:var(--dark1); }
-  .review-date { font-size:11px; color:#94a3b8; }
+/* ── REVIEWS CAROUSEL ── */
+.reviews-section{background:#f8fafc;overflow:hidden;}
+.rev-outer{overflow:hidden;position:relative;}
+.rev-inner{display:flex;gap:16px;padding:0 20px;width:max-content;animation:slideLeft 40s linear infinite;}
+.rev-inner:hover{animation-play-state:paused;}
+.rc{width:300px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.06);border-left:3px solid var(--r);flex-shrink:0;}
+.rstar{color:var(--g);font-size:14px;margin-bottom:8px;}
+.rtxt{font-size:13px;color:#374151;line-height:1.6;font-style:italic;margin-bottom:10px;}
+.rauth{font-size:12px;font-weight:700;color:var(--d1);}
+.rdate{font-size:11px;color:#94a3b8;}
 
-  /* VETERAN */
-  .veteran-banner {
-    background:linear-gradient(135deg,var(--dark1) 0%,#1e3a5f 100%);
-    padding:40px 20px; text-align:center;
-  }
-  .veteran-banner .flag { font-size:40px; margin-bottom:10px; }
-  .veteran-banner h3 { font-size:18px; font-weight:900; color:#fff; margin-bottom:6px; }
-  .veteran-banner p { font-size:13px; color:#94a3b8; max-width:400px; margin:0 auto; }
+/* ── ABOUT ── */
+.about-section{background:#fff;}
+.about-inner{max-width:700px;margin:0 auto;display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+.about-logo{width:180px;flex-shrink:0;}
+.about-logo img{width:100%;border-radius:10px;}
+.about-text h3{font-size:20px;font-weight:900;color:var(--d1);margin-bottom:10px;}
+.about-text p{font-size:14px;color:#475569;line-height:1.7;margin-bottom:10px;}
+.about-cert{display:inline-flex;align-items:center;gap:6px;background:#fef3c7;border:1px solid #fcd34d;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;color:#92400e;}
 
-  /* CONTACT */
-  .contact-section { background:var(--dark2); padding:60px 20px; }
-  .contact-section .section-title { color:#fff; }
-  .contact-section .section-label { color:var(--gold); }
-  .contact-section .section-sub { color:#94a3b8; }
-  .contact-form {
-    max-width:480px; margin:0 auto; display:grid; gap:12px;
-  }
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form select {
-    width:100%; padding:12px 14px; border-radius:8px;
-    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
-    color:#fff; font-size:14px; font-family:inherit; outline:none;
-    transition:border-color 0.2s;
-  }
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder { color:#64748b; }
-  .contact-form input:focus,
-  .contact-form textarea:focus { border-color:var(--primary); }
-  .contact-form textarea { height:100px; resize:vertical; }
-  .contact-form button {
-    background:var(--primary); color:#fff; border:none; padding:14px;
-    border-radius:8px; font-weight:800; font-size:15px; cursor:pointer;
-    transition:transform 0.2s;
-  }
-  .contact-form button:hover { transform:translateY(-2px); }
-  .contact-info { max-width:480px; margin:24px auto 0; display:flex; flex-direction:column; gap:12px; }
-  .contact-item { display:flex; align-items:center; gap:10px; color:#cbd5e1; font-size:14px; }
-  .contact-item .ico { font-size:18px; }
+/* ── HOURS ── */
+.hours-section{background:#f8fafc;}
+.hours-table{max-width:400px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;background:#fff;}
+.hours-row{display:flex;justify-content:space-between;padding:11px 20px;border-bottom:1px solid #f1f5f9;font-size:14px;}
+.hours-row:last-child{border-bottom:none;}
+.hours-row .day{font-weight:700;color:var(--d1);}
+.hours-row .time{color:#64748b;}
+.hours-row.today{background:#fef2f2;}
+.hours-row.today .day{color:var(--r);}
+.hours-row.today .time{color:var(--r);font-weight:700;}
 
-  /* FOOTER */
-  footer {
-    background:var(--dark1); padding:24px 20px; text-align:center;
-    border-top:1px solid rgba(255,255,255,0.06);
-  }
-  footer p { color:#64748b; font-size:12px; margin-bottom:4px; }
-  footer .powered { font-size:10px; color:#334155; margin-top:8px; }
+/* ── VETERAN ── */
+.vet-banner{background:linear-gradient(135deg,var(--d1) 0%,#1e3a5f 100%);padding:40px 20px;text-align:center;}
+.vet-banner h3{font-size:18px;font-weight:900;color:#fff;margin-bottom:8px;}
+.vet-banner p{font-size:13px;color:#94a3b8;max-width:420px;margin:0 auto;}
 
-  /* PRICING STRIP */
-  .pricing-strip {
-    background:linear-gradient(90deg,var(--primary),#7f1d1d);
-    padding:12px 20px; text-align:center;
-  }
-  .pricing-strip p { color:#fff; font-size:13px; }
-  .pricing-strip strong { font-size:16px; }
+/* ── CONTACT ── */
+.contact-section{background:var(--d2);padding:64px 20px;}
+.contact-section .sl{color:var(--g);}
+.contact-section .st{color:#fff;}
+.contact-section .ss{color:#94a3b8;}
+.cform{max-width:500px;margin:0 auto;display:grid;gap:12px;}
+.cform input,.cform textarea,.cform select{width:100%;padding:12px 14px;border-radius:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:14px;font-family:inherit;outline:none;}
+.cform input::placeholder,.cform textarea::placeholder{color:#64748b;}
+.cform select option{color:#111;background:#fff;}
+.cform textarea{height:100px;resize:vertical;}
+.cform button{background:var(--r);color:#fff;border:none;padding:14px;border-radius:8px;font-weight:800;font-size:15px;cursor:pointer;}
+.cinfo{max-width:500px;margin:24px auto 0;display:flex;flex-direction:column;gap:12px;}
+.ci{display:flex;align-items:center;gap:10px;color:#cbd5e1;font-size:14px;}
 
-  /* CHAT */
-  #chat-bubble {
-    position:fixed; bottom:20px; right:20px; z-index:9999;
-    width:54px; height:54px; border-radius:50%;
-    background:var(--primary); box-shadow:0 4px 18px rgba(185,28,28,0.5);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer; font-size:22px; border:none;
-    transition:transform 0.2s;
-  }
-  #chat-bubble:hover { transform:scale(1.1); }
-  #chat-box {
-    position:fixed; bottom:84px; right:20px; z-index:9998;
-    width:300px; background:#fff; border-radius:14px;
-    box-shadow:0 8px 40px rgba(0,0,0,0.18); overflow:hidden;
-    display:none; flex-direction:column;
-  }
-  #chat-box.open { display:flex; }
-  .chat-header {
-    background:var(--dark1); color:#fff; padding:14px 16px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .chat-header .info { display:flex; align-items:center; gap:8px; }
-  .chat-avatar {
-    width:32px; height:32px; border-radius:50%; background:var(--primary);
-    display:flex; align-items:center; justify-content:center; font-size:14px;
-  }
-  .chat-header h4 { font-size:13px; font-weight:700; }
-  .chat-header small { font-size:10px; color:#94a3b8; }
-  .chat-close { background:none; border:none; color:#94a3b8; cursor:pointer; font-size:18px; }
-  .chat-messages { padding:14px; flex:1; min-height:160px; display:flex; flex-direction:column; gap:10px; }
-  .msg { max-width:82%; }
-  .msg.bot .bubble {
-    background:#f1f5f9; color:#1e293b; border-radius:14px 14px 14px 2px;
-    padding:10px 13px; font-size:13px; line-height:1.5;
-  }
-  .msg.user { align-self:flex-end; }
-  .msg.user .bubble {
-    background:var(--primary); color:#fff; border-radius:14px 14px 2px 14px;
-    padding:10px 13px; font-size:13px;
-  }
-  .chat-input-row {
-    display:flex; gap:8px; padding:10px 12px;
-    border-top:1px solid #f1f5f9;
-  }
-  .chat-input-row input {
-    flex:1; padding:9px 12px; border-radius:8px;
-    border:1px solid #e2e8f0; font-size:13px; outline:none;
-  }
-  .chat-send {
-    background:var(--primary); color:#fff; border:none;
-    padding:9px 14px; border-radius:8px; cursor:pointer; font-size:15px;
-  }
+/* ── PRICING STRIP ── */
+.pstrip{background:linear-gradient(90deg,var(--r),#7f1d1d);padding:12px 20px;text-align:center;}
+.pstrip p{color:#fff;font-size:13px;}
+.pstrip strong{font-size:16px;}
 
-  @media(max-width:480px) {
-    .hero-stats { flex-wrap:wrap; }
-    .hero-stat { flex:0 0 50%; border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); }
-    .hero-stat:nth-child(even) { border-left:1px solid rgba(255,255,255,0.08); }
-    .hero-stat:last-child { flex:0 0 100%; }
-    #chat-box { width:calc(100vw - 40px); right:20px; }
-  }
+/* ── FOOTER ── */
+footer{background:var(--d1);padding:24px 20px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);}
+footer p{color:#64748b;font-size:12px;margin-bottom:4px;}
+
+/* ── CHAT ── */
+#cb{position:fixed;bottom:20px;right:20px;z-index:9999;width:54px;height:54px;border-radius:50%;background:var(--r);box-shadow:0 4px 18px rgba(185,28,28,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;border:none;}
+#cbox{position:fixed;bottom:84px;right:20px;z-index:9998;width:310px;background:#fff;border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,0.18);overflow:hidden;display:none;flex-direction:column;}
+#cbox.open{display:flex;}
+.ch{background:var(--d1);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
+.chi{display:flex;align-items:center;gap:8px;}
+.ca{width:36px;height:36px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:16px;overflow:hidden;}
+.ca img{width:100%;height:100%;object-fit:cover;}
+.ch h4{font-size:13px;font-weight:700;margin-bottom:1px;}
+.ch small{font-size:10px;color:#94a3b8;}
+.cc{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:18px;}
+.cm{padding:14px;flex:1;min-height:160px;max-height:240px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.mb{max-width:85%;}
+.mb.bot .b{background:#f1f5f9;color:#1e293b;border-radius:14px 14px 14px 2px;padding:10px 13px;font-size:13px;line-height:1.5;}
+.mb.usr{align-self:flex-end;}
+.mb.usr .b{background:var(--r);color:#fff;border-radius:14px 14px 2px 14px;padding:10px 13px;font-size:13px;}
+.cir{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #f1f5f9;}
+.cir input{flex:1;padding:9px 12px;border-radius:8px;border:1px solid #e2e8f0;font-size:13px;outline:none;}
+.cs{background:var(--r);color:#fff;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-size:15px;}
+
+@media(max-width:480px){
+  .hero-stats{flex-wrap:wrap;}
+  .hero-stat{flex:0 0 50%;border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .hero-stat:nth-child(even){border-left:1px solid rgba(255,255,255,0.07);}
+  .hero-stat:last-child{flex:0 0 100%;border-bottom:none;}
+  #cbox{width:calc(100vw - 40px);}
+  .about-logo{width:100%;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <span class="flag">🇺🇸</span>
-    <div>
-      <span>Patriot H&C</span>
-      <small>Troy, Alabama</small>
+  <div class="nav-left">
+    <img class="nav-logo-img" src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="Patriot Heating & Cooling Logo">
+    <div class="nav-name">
+      <span>Patriot Heating &amp; Cooling, LLC</span>
+      <small>Troy, Alabama &bull; AL Cert. #18123</small>
     </div>
-  </a>
-  <a href="tel:3343728823" class="nav-cta">📞 Call Now</a>
+  </div>
+  <a href="tel:3343728823" class="nav-cta">&#128222; Call Now</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png')"></div>
-    <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png')"></div>
+    <div class="hero-slide active" id="hs0" style="background-image:url('https://lh5.googleusercontent.com/p/AF1QipNXRb3kQyqh5R9Q7_SfRhZG5UGLbnVW4yd4P8pQ=w1080-k-no')"></div>
+    <div class="hero-slide" id="hs1" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png')"></div>
+    <div class="hero-slide" id="hs2" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png')"></div>
+    <div class="hero-slide" id="hs3" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png')"></div>
+    <div class="hero-slide" id="hs4" style="background-image:url('https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png')"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-badge">🇺🇸 Veteran-Owned &amp; Operated</div>
-    <h1>Troy's Most Trusted<br><span>Heating &amp; Cooling</span></h1>
-    <p>Serving Troy, AL and surrounding areas with fast, honest HVAC service. Same-day repairs, competitive pricing, and work you can trust.</p>
+    <div class="hero-badge">&#127482;&#127480; Veteran-Owned &amp; Operated</div>
+    <h1>Troy's Most Trusted<br><span>HVAC Contractor</span></h1>
+    <p>"Protecting Your Comfort" — fast, honest heating and cooling service in Troy, AL. Same-day repairs, veteran integrity, prices that won't blow you away.</p>
     <div class="hero-btns">
-      <a href="tel:3343728823" class="btn-primary">📞 Call (334) 372-8823</a>
-      <a href="#contact" class="btn-outline">Get Free Estimate</a>
+      <a href="tel:3343728823" class="btn-r">&#128222; Call (334) 372-8823</a>
+      <a href="#contact" class="btn-o">Free Estimate</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">4.9★</div>
-      <div class="lbl">Google Rating</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">63</div>
-      <div class="lbl">5-Star Reviews</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">Same Day</div>
-      <div class="lbl">Service Available</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">Free</div>
-      <div class="lbl">Estimates</div>
-    </div>
+    <div class="hero-stat"><div class="n">4.9&#9733;</div><div class="l">Google Rating</div></div>
+    <div class="hero-stat"><div class="n">63</div><div class="l">5-Star Reviews</div></div>
+    <div class="hero-stat"><div class="n">Same Day</div><div class="l">Service</div></div>
+    <div class="hero-stat"><div class="n">20+ Yrs</div><div class="l">Experience</div></div>
   </div>
 </section>
 
 <!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item"><span class="icon">✅</span> Licensed &amp; Insured</div>
-  <div class="trust-item"><span class="icon">🇺🇸</span> Veteran-Owned</div>
-  <div class="trust-item"><span class="icon">⚡</span> Same-Day Service</div>
-  <div class="trust-item"><span class="icon">💰</span> Honest Pricing</div>
+<div class="trust">
+  <span>&#9989; Licensed &amp; Insured</span>
+  <span>&#127482;&#127480; Veteran-Owned</span>
+  <span>&#9889; Same-Day Service</span>
+  <span>&#128176; Honest Pricing</span>
+  <span>&#127775; AL Cert. #18123</span>
 </div>
 
 <!-- TIMER -->
-<div class="timer-bar">
-  <div class="timer-label">🔥 This site offer expires in</div>
-  <div class="timer-digits">
-    <div class="timer-unit"><div class="num" id="th">47</div><div class="lbl">Hours</div></div>
-    <div class="timer-unit" style="display:flex;align-items:center;padding-bottom:14px;color:#475569;font-weight:900;font-size:18px">:</div>
-    <div class="timer-unit"><div class="num" id="tm">59</div><div class="lbl">Mins</div></div>
-    <div class="timer-unit" style="display:flex;align-items:center;padding-bottom:14px;color:#475569;font-weight:900;font-size:18px">:</div>
-    <div class="timer-unit"><div class="num" id="ts">59</div><div class="lbl">Secs</div></div>
+<div class="tbar">
+  <div class="tl">&#128293; This site offer expires in</div>
+  <div class="tdigs">
+    <div class="tu"><div class="tn" id="th">47</div><div class="tll">Hours</div></div>
+    <div class="tsep">:</div>
+    <div class="tu"><div class="tn" id="tm">59</div><div class="tll">Mins</div></div>
+    <div class="tsep">:</div>
+    <div class="tu"><div class="tn" id="ts">59</div><div class="tll">Secs</div></div>
   </div>
-  <div class="timer-note">Your custom site is reserved — claim it before it's offered to a competitor</div>
+  <div class="tnote">Your custom site is reserved &#8212; claim it before it&#8217;s offered to a competitor</div>
 </div>
 
 <!-- SERVICES -->
-<section class="services-section">
-  <div class="section-label">What We Do</div>
-  <div class="section-title">Full HVAC Services</div>
-  <div class="section-sub">From quick repairs to full system installs — we handle it all.</div>
-  <div class="services-grid">
-    <div class="service-card"><span class="icon">❄️</span><div class="name">AC Repair</div></div>
-    <div class="service-card"><span class="icon">🔥</span><div class="name">Heating Service</div></div>
-    <div class="service-card"><span class="icon">🏠</span><div class="name">New Installations</div></div>
-    <div class="service-card"><span class="icon">🌬️</span><div class="name">Mini-Split Systems</div></div>
-    <div class="service-card"><span class="icon">🔧</span><div class="name">Maintenance Plans</div></div>
-    <div class="service-card"><span class="icon">🌡️</span><div class="name">Thermostat Upgrades</div></div>
+<section class="svc-section">
+  <div class="sl">What We Do</div>
+  <div class="st">Full HVAC Services</div>
+  <div class="ss">Wallace Atwell and his team handle everything from routine tune-ups to full system installs. Click a category to see details.</div>
+  <div class="svc-groups">
+
+    <div class="svc-group open">
+      <button class="svc-group-header" onclick="toggleGroup(this)">
+        <div class="svc-group-title"><span class="ico">&#127968;</span> HVAC Installation &amp; Replacement</div>
+        <span class="svc-arrow">&#9660;</span>
+      </button>
+      <div class="svc-items">
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Central AC Installation</div><div class="desc">Full central air conditioning system installs for new construction or replacements. Properly sized for your home's square footage.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Furnace &amp; Heat Pump Installation</div><div class="desc">Gas furnace and electric heat pump installations with proper load calculations and ductwork connections.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Mini-Split Systems &#127789;</div><div class="desc">Ductless mini-split installation for additions, garages, sunrooms, or any space without existing ductwork.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Thermostat Upgrades &#127777;</div><div class="desc">Smart thermostat installation including Nest, Ecobee, and Honeywell — schedule your comfort and save on energy bills.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">System Replacement</div><div class="desc">Old unit costing you money? We'll swap it for a high-efficiency model and haul away the old equipment.</div></div></div>
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <button class="svc-group-header" onclick="toggleGroup(this)">
+        <div class="svc-group-title"><span class="ico">&#128295;</span> HVAC System Maintenance</div>
+        <span class="svc-arrow">&#9660;</span>
+      </button>
+      <div class="svc-items">
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Spring &amp; Fall Tune-Ups</div><div class="desc">Seasonal checkups that clean coils, check refrigerant, test electrical components, and ensure peak efficiency before heavy use.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Filter Replacement &amp; Coil Cleaning</div><div class="desc">Dirty filters and coils reduce efficiency by up to 40%. We clean and replace to keep your system running like new.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Refrigerant Level Check</div><div class="desc">Low refrigerant means higher bills and a struggling unit. We check levels and recharge as needed.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Ductwork Inspection</div><div class="desc">Leaky ducts can waste 20–30% of conditioned air. We inspect and seal to maximize the air you're paying for.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Maintenance Advice</div><div class="desc">Wallace takes the time to walk you through how to care for your system and avoid costly breakdowns — no pressure, just honest advice.</div></div></div>
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <button class="svc-group-header" onclick="toggleGroup(this)">
+        <div class="svc-group-title"><span class="ico">&#128293;</span> HVAC System Repair</div>
+        <span class="svc-arrow">&#9660;</span>
+      </button>
+      <div class="svc-items">
+        <div class="svc-item"><div class="dot"></div><div><div class="name">AC Not Cooling</div><div class="desc">Compressor issues, low refrigerant, frozen coils — we diagnose fast and get you cool same day when possible.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Heating System Failure</div><div class="desc">From cracked heat exchangers to faulty igniters, we repair gas furnaces and heat pumps quickly and correctly.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Electrical &amp; Capacitor Repairs</div><div class="desc">Bad capacitors, contactors, and wiring issues are some of the most common HVAC failures — we fix them affordably.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Emergency Service Calls</div><div class="desc">System out in extreme heat or cold? We prioritize emergency calls — especially for families with infants or elderly residents.</div></div></div>
+        <div class="svc-item"><div class="dot"></div><div><div class="name">Mini-Split Repairs</div><div class="desc">Ductless unit not cooling or heating a room? We service all major mini-split brands including Gree, Mitsubishi, and LG.</div></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- PHOTOS -->
+<!-- PHOTOS CAROUSEL -->
 <section class="photos-section">
-  <div class="section-label" style="padding:0 20px;">Our Work</div>
-  <div class="section-title" style="color:#fff;padding:0 20px 24px;">See Us In Action</div>
-  <div class="carousel-wrap">
-    <div class="carousel-track">
-      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png" alt="HVAC tech servicing outdoor unit">
-      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png" alt="Technician installing AC">
-      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png" alt="Service technician with gauges">
-      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png" alt="Commercial HVAC install team">
+  <div class="sl">Our Work</div>
+  <div class="st">See Us In Action</div>
+  <div class="carousel-outer">
+    <div class="carousel-inner" id="photoCarousel">
+      <img src="https://lh5.googleusercontent.com/p/AF1QipNXRb3kQyqh5R9Q7_SfRhZG5UGLbnVW4yd4P8pQ=w600-k-no" alt="Patriot tech installing Gree unit">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png" alt="HVAC technician">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png" alt="AC installation">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png" alt="Service tech with gauges">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png" alt="HVAC team">
+      <!-- Duplicate set for seamless loop -->
+      <img src="https://lh5.googleusercontent.com/p/AF1QipNXRb3kQyqh5R9Q7_SfRhZG5UGLbnVW4yd4P8pQ=w600-k-no" alt="Patriot tech">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/d5485d990_generated_image.png" alt="HVAC tech">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/ab5106900_generated_image.png" alt="AC install">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/05a7f7ee5_generated_image.png" alt="Service tech">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9dcae8eba_generated_image.png" alt="HVAC team">
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- REVIEWS CAROUSEL -->
 <section class="reviews-section">
-  <div class="section-label">What Customers Say</div>
-  <div class="section-title">4.9★ on Google — 63 Reviews</div>
-  <div class="section-sub">Real feedback from real neighbors in Troy, AL.</div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">They answer the phone every time I call and show up the same day. Always nice and professional. Very reasonable price. Have always given me sound advice to save me money and to care for my AC unit. I highly recommend them.</div>
-      <div class="review-author">Nicky</div>
-      <div class="review-date">2 months ago</div>
+  <div class="sl">What Customers Say</div>
+  <div class="st">4.9&#9733; on Google &mdash; 63 Reviews</div>
+  <div class="ss">Real feedback from homeowners in Troy, AL and surrounding areas.</div>
+  <div class="rev-outer">
+    <div class="rev-inner">
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">They answer the phone every time I call and show up the same day. Always nice and professional. Very reasonable price. Always given me sound advice to save money on my AC unit. I highly recommend them.</div><div class="rauth">Nicky</div><div class="rdate">2 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Called, Wallace answered right away and was in the area. Responded within 30 minutes. Had to order a part and came back and repaired it quickly. Exceptional experience all around.</div><div class="rauth">Michael Carpenter</div><div class="rdate">3 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">We have a new baby and our heat quit in the cold. Mr. Atwell sent Dylan over immediately and within an hour had our system heating again. Professional, courteous, and reasonably priced. Highly recommend!</div><div class="rauth">Lacy</div><div class="rdate">3 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">They took great care of us on short notice. Professional, personable, and knowledgeable. Very conscious of our new baby and made efforts to not disturb her. Will definitely use again.</div><div class="rauth">Aeseiri</div><div class="rdate">2 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Had a new split system installed. From the first call to installation was extremely fast — just a few days. No better price in town. When you find an honest, hard working person you stick with them.</div><div class="rauth">Jeff Brunje</div><div class="rdate">3 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Mr. Atwell answered within two rings and assured me they'd take care of me that day — and they did! Dylan came out and got my air working within 30 minutes. So grateful a friend referred me here.</div><div class="rauth">Becky Parker</div><div class="rdate">8 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">I have been working with this company for over a year now. Very dependable and knowledgeable. I appreciate their honesty and integrity. Their pricing and quality of work is the best around!</div><div class="rauth">Property Manager</div><div class="rdate">3 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">AC was out and I called Patriot — they answered immediately and arrived within hours. He was able to figure out the problem right away! Very cost efficient and professional. Highly recommend.</div><div class="rauth">Atiana Jones</div><div class="rdate">10 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Very pleased with Patriot. Several components needed replacing and while waiting on parts, they didn't leave me stuck in the heat. Went above and beyond. Prices blew us away — so generous for their work.</div><div class="rauth">Portland Janus</div><div class="rdate">1 year ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">We highly recommend this company to anyone in need of HVAC service. Fair, honest, and they stand behind their work. Wallace is the kind of person you want working in your home.</div><div class="rauth">Google Reviewer</div><div class="rdate">1 year ago</div></div>
+      <!-- Duplicates for seamless loop -->
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">They answer the phone every time I call and show up the same day. Always nice and professional. Very reasonable price. Always given me sound advice to save money on my AC unit.</div><div class="rauth">Nicky</div><div class="rdate">2 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Called, Wallace answered right away and was in the area. Responded within 30 minutes. Exceptional experience all around.</div><div class="rauth">Michael Carpenter</div><div class="rdate">3 months ago</div></div>
+      <div class="rc"><div class="rstar">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rtxt">Had a new split system installed. From the first call to installation was extremely fast. No better price in town. When you find an honest person, you stick with them.</div><div class="rauth">Jeff Brunje</div><div class="rdate">3 months ago</div></div>
     </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">Called, Wallace answered right away and was in the area. Responded within 30 minutes. Had to order a part — part arrived within a couple of days and he came back out and repaired it. Exceptional experience all around.</div>
-      <div class="review-author">Michael Carpenter</div>
-      <div class="review-date">3 months ago</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="sl">About Us</div>
+  <div class="st">About Patriot Heating &amp; Cooling, LLC</div>
+  <div class="about-inner">
+    <div class="about-logo">
+      <img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="Patriot Heating & Cooling Logo">
     </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text">We have a new baby and our heat quit in the cold. We called Mr. Atwell and he sent Dylan over immediately — within an hour the system was heating again. Professional, courteous, and reasonably priced. Highly recommend Patriot!</div>
-      <div class="review-author">Lacy</div>
-      <div class="review-date">3 months ago</div>
+    <div class="about-text">
+      <h3>&#127482;&#127480; Veteran-Owned. Troy Trusted.</h3>
+      <p>Patriot Heating &amp; Cooling, LLC is a veteran-owned and operated business serving Troy, AL and surrounding communities. Wallace Atwell has <strong>20+ years of HVAC experience</strong> and would love the chance to protect your comfort.</p>
+      <p>We bring the same discipline, integrity, and commitment to every service call that we carried in service to our country. When you call Patriot, you get honest pricing, same-day availability, and a technician who actually cares.</p>
+      <div class="about-cert">&#127775; AL Certification #18123 &bull; Licensed &amp; Insured</div>
     </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="hours-section">
+  <div class="sl">Business Hours</div>
+  <div class="st">When We're Available</div>
+  <div class="hours-table">
+    <div class="hours-row" id="h-mon"><span class="day">Monday</span><span class="time">6:30 AM – 6:00 PM</span></div>
+    <div class="hours-row"><span class="day">Tuesday</span><span class="time">6:30 AM – 6:00 PM</span></div>
+    <div class="hours-row"><span class="day">Wednesday</span><span class="time">6:30 AM – 6:00 PM</span></div>
+    <div class="hours-row"><span class="day">Thursday</span><span class="time">6:30 AM – 6:00 PM</span></div>
+    <div class="hours-row" id="h-fri"><span class="day">Friday</span><span class="time">6:30 AM – 6:00 PM</span></div>
+    <div class="hours-row" id="h-sat"><span class="day">Saturday</span><span class="time">7:00 AM – 4:00 PM</span></div>
+    <div class="hours-row" id="h-sun"><span class="day">Sunday</span><span class="time">12:00 PM – 3:00 PM</span></div>
   </div>
 </section>
 
 <!-- VETERAN BANNER -->
-<div class="veteran-banner">
-  <div class="flag">🇺🇸</div>
+<div class="vet-banner">
+  <div style="font-size:40px;margin-bottom:10px">&#127482;&#127480;</div>
   <h3>Proudly Veteran-Owned &amp; Operated</h3>
-  <p>We bring the same discipline, integrity, and commitment to every job that we carried in service to our country. Troy trusts Patriot.</p>
+  <p>"Protecting Your Comfort" &mdash; Wallace Atwell serves Troy with the same commitment he gave to his country.</p>
 </div>
 
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="section-label">Get In Touch</div>
-  <div class="section-title" style="color:#fff;">Request a Free Estimate</div>
-  <div class="section-sub">We'll respond same day — usually within the hour.</div>
-  <form class="contact-form" onsubmit="handleSubmit(event)">
+  <div class="sl">Get In Touch</div>
+  <div class="st" style="color:#fff">Request a Free Estimate</div>
+  <div class="ss">We respond same day &mdash; usually within the hour.</div>
+  <form class="cform" onsubmit="hSub(event)">
     <input type="text" placeholder="Your Name" required>
     <input type="tel" placeholder="Phone Number" required>
-    <select style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#94a3b8;padding:12px 14px;border-radius:8px;font-size:14px;width:100%;outline:none;">
+    <input type="email" placeholder="Email Address">
+    <select>
       <option value="">Service Needed...</option>
       <option>AC Repair</option>
-      <option>Heating Service</option>
-      <option>New Installation</option>
-      <option>Mini-Split</option>
-      <option>Maintenance</option>
+      <option>Heating Repair</option>
+      <option>New AC Installation</option>
+      <option>New Heating Installation</option>
+      <option>Mini-Split System</option>
+      <option>Thermostat Upgrade</option>
+      <option>Maintenance / Tune-Up</option>
       <option>Other</option>
     </select>
-    <textarea placeholder="Briefly describe the issue..."></textarea>
-    <button type="submit">Send Request →</button>
+    <textarea placeholder="Briefly describe the issue or what you need..."></textarea>
+    <button type="submit">Send Request &#8594;</button>
   </form>
-  <div class="contact-info">
-    <div class="contact-item"><span class="ico">📍</span> 2973 County Road 1107, Troy, AL 36081</div>
-    <div class="contact-item"><span class="ico">📞</span> (334) 372-8823</div>
-    <div class="contact-item"><span class="ico">🕐</span> Open · Closes 6 PM · Mon–Sat</div>
+  <div class="cinfo">
+    <div class="ci">&#128205; 2973 County Road 1107, Troy, AL 36081</div>
+    <div class="ci">&#128222; (334) 372-8823</div>
+    <div class="ci">&#128336; Mon–Fri 6:30AM–6PM &bull; Sat 7AM–4PM &bull; Sun 12–3PM</div>
+    <div class="ci">&#127775; AL Certification #18123</div>
   </div>
 </section>
 
 <!-- PRICING STRIP -->
-<div class="pricing-strip">
+<div class="pstrip">
   <p>This professional website: <strong>$750 one-time</strong> setup &nbsp;|&nbsp; $100/mo hosting after 30-day free trial</p>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Patriot Heating &amp; Cooling, LLC — Troy, AL</p>
-  <p>All rights reserved. Veteran-Owned &amp; Operated.</p>
-  <p class="powered">Preview built by SiteSniper · sitesniper.pro</p>
+  <p>&#169; 2025 Patriot Heating &amp; Cooling, LLC &mdash; Troy, AL</p>
+  <p>"Protecting Your Comfort" &mdash; Veteran-Owned &amp; Operated</p>
+  <p style="font-size:10px;color:#334155;margin-top:8px">Preview by SiteSniper &middot; sitesniper.pro</p>
 </footer>
 
 <!-- CHAT BUBBLE -->
-<button id="chat-bubble" onclick="toggleChat()">💬</button>
-<div id="chat-box">
-  <div class="chat-header">
-    <div class="info">
-      <div class="chat-avatar">🇺🇸</div>
-      <div>
-        <h4>Patriot H&amp;C</h4>
-        <small>🟢 Typically replies fast</small>
-      </div>
+<button id="cb" onclick="tChat()">&#128172;</button>
+<div id="cbox">
+  <div class="ch">
+    <div class="chi">
+      <div class="ca"><img src="https://media.base44.com/images/public/69f101b202433ed2711860d0/9deed13e4_patriotheatingandcoolinglogo.webp" alt="logo"></div>
+      <div><h4>Patriot H&amp;C</h4><small>&#127381; Usually replies fast</small></div>
     </div>
-    <button class="chat-close" onclick="toggleChat()">✕</button>
+    <button class="cc" onclick="tChat()">&#10005;</button>
   </div>
-  <div class="chat-messages" id="chat-msgs">
-    <div class="msg bot"><div class="bubble">Hey! 👋 This is Patriot Heating &amp; Cooling. How can we help you today?</div></div>
+  <div class="cm" id="cmsgs">
+    <div class="mb bot"><div class="b">Hey! &#128075; Welcome to Patriot Heating &amp; Cooling. How can we help you today?</div></div>
   </div>
-  <div class="chat-input-row">
-    <input type="text" id="chat-in" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()">
-    <button class="chat-send" onclick="sendChat()">➤</button>
+  <div class="cir">
+    <input type="text" id="cin" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')sChat()">
+    <button class="cs" onclick="sChat()">&#10148;</button>
   </div>
 </div>
 
 <script>
-// HERO SLIDESHOW
-var slides = document.querySelectorAll('.hero-slide');
-var cur = 0;
+// ── KNOWLEDGE BASE ──
+var KB = {
+  phone: "(334) 372-8823",
+  address: "2973 County Road 1107, Troy, AL 36081",
+  hours: {
+    monday:"6:30 AM – 6:00 PM", tuesday:"6:30 AM – 6:00 PM", wednesday:"6:30 AM – 6:00 PM",
+    thursday:"6:30 AM – 6:00 PM", friday:"6:30 AM – 6:00 PM", saturday:"7:00 AM – 4:00 PM", sunday:"12:00 PM – 3:00 PM"
+  },
+  services: ["AC Repair","Heating Repair","New AC Installation","New Heating Installation","Mini-Split Systems","Thermostat Upgrades","Maintenance & Tune-Ups","Ductwork Inspection","Emergency Service Calls","Refrigerant Recharge","Filter Replacement","System Replacement"],
+  about: "Patriot Heating & Cooling, LLC is a veteran-owned and operated business in Troy, AL. Wallace Atwell has 20+ years of HVAC experience. AL Certification #18123. Licensed and insured.",
+  tagline: "Protecting Your Comfort",
+  rating: "4.9 stars with 63 Google reviews",
+  certifications: "Alabama HVAC Certification #18123, Licensed & Insured, Veteran-Owned"
+};
+
+function getBotReply(msg) {
+  var m = msg.toLowerCase();
+  if(m.match(/hour|open|close|time|when|schedule/)) {
+    return "Our hours are: Mon–Fri 6:30 AM–6:00 PM, Saturday 7:00 AM–4:00 PM, Sunday 12:00–3:00 PM. Give us a call anytime at "+KB.phone+"!";
+  }
+  if(m.match(/phone|call|number|contact/)) {
+    return "You can reach us at "+KB.phone+". Wallace personally answers — usually on the first couple of rings!";
+  }
+  if(m.match(/address|location|where|directions/)) {
+    return "We're located at "+KB.address+". We also serve the surrounding Troy, AL area.";
+  }
+  if(m.match(/service|offer|do you|fix|repair|install|mini.?split|thermostat|furnace|heat pump|duct/)) {
+    return "We handle: "+KB.services.slice(0,6).join(", ")+" and more! Call us at "+KB.phone+" for a free estimate.";
+  }
+  if(m.match(/price|cost|how much|charge|fee|estimate/)) {
+    return "We offer free estimates and our pricing is among the best in Troy! Give us a call at "+KB.phone+" and Wallace will give you an honest quote.";
+  }
+  if(m.match(/veteran|military|owned/)) {
+    return "Yes! Patriot is proudly veteran-owned and operated by Wallace Atwell. We bring military discipline and integrity to every job.";
+  }
+  if(m.match(/emergency|urgent|asap|right now|today|same.?day/)) {
+    return "We prioritize same-day and emergency calls! Call us right now at "+KB.phone+" and we'll get someone out as fast as possible.";
+  }
+  if(m.match(/review|rating|star|reputation/)) {
+    return "We're rated "+KB.rating+"! Our customers love us for our honesty, fast response, and fair pricing.";
+  }
+  if(m.match(/certif|licens|insur/)) {
+    return "We're fully licensed and insured — "+KB.certifications+".";
+  }
+  if(m.match(/about|who|wallace|owner|company/)) {
+    return KB.about+" "+KB.tagline+"!";
+  }
+  return "Great question! For the fastest answer, call Wallace directly at "+KB.phone+". He answers personally and can give you an honest answer right away. &#128295;";
+}
+
+// ── HERO SLIDESHOW ──
+var slides = document.querySelectorAll('.hero-slide'), cur = 0;
 setInterval(function(){
   slides[cur].classList.remove('active');
   cur = (cur + 1) % slides.length;
   slides[cur].classList.add('active');
 }, 4500);
 
-// COUNTDOWN TIMER — 48h from first visit, per device
+// ── COUNTDOWN TIMER ──
 (function(){
-  var KEY = 'patriot_timer_v1';
-  var stored = localStorage.getItem(KEY);
-  var end;
-  if(stored){ end = parseInt(stored); } 
-  else { end = Date.now() + 48*3600*1000; localStorage.setItem(KEY, end); }
-  function tick(){
-    var diff = end - Date.now();
-    if(diff < 0){ diff = 0; }
-    var h = Math.floor(diff/3600000);
-    var m = Math.floor((diff%3600000)/60000);
-    var s = Math.floor((diff%60000)/1000);
-    document.getElementById('th').textContent = String(h).padStart(2,'0');
-    document.getElementById('tm').textContent = String(m).padStart(2,'0');
-    document.getElementById('ts').textContent = String(s).padStart(2,'0');
+  var K='patriot_v2', s=localStorage.getItem(K), e;
+  if(s){e=parseInt(s);}else{e=Date.now()+48*3600*1000;localStorage.setItem(K,e);}
+  function t(){
+    var d=Math.max(0,e-Date.now());
+    document.getElementById('th').textContent=String(Math.floor(d/3600000)).padStart(2,'0');
+    document.getElementById('tm').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+    document.getElementById('ts').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');
   }
-  tick();
-  setInterval(tick, 1000);
+  t(); setInterval(t,1000);
 })();
 
-// CHAT
-function toggleChat(){
-  var box = document.getElementById('chat-box');
-  box.classList.toggle('open');
-}
-function sendChat(){
-  var inp = document.getElementById('chat-in');
-  var val = inp.value.trim();
-  if(!val) return;
-  var msgs = document.getElementById('chat-msgs');
-  msgs.innerHTML += '<div class="msg user"><div class="bubble">'+val+'</div></div>';
-  inp.value = '';
-  msgs.scrollTop = 9999;
-  setTimeout(function(){
-    msgs.innerHTML += '<div class="msg bot"><div class="bubble">Thanks for reaching out! Give us a call at (334) 372-8823 and we\'ll get you taken care of same day. 🛠️</div></div>';
-    msgs.scrollTop = 9999;
-  }, 900);
+// ── HIGHLIGHT TODAY'S HOURS ──
+(function(){
+  var days=['h-sun','h-mon',null,null,null,'h-fri','h-sat'];
+  var d = new Date().getDay();
+  var id = days[d];
+  if(id){var el=document.getElementById(id);if(el)el.classList.add('today');}
+})();
+
+// ── SERVICES ACCORDION ──
+function toggleGroup(btn){
+  var group = btn.parentElement;
+  group.classList.toggle('open');
 }
 
-// FORM
-function handleSubmit(e){
+// ── CHAT ──
+function tChat(){document.getElementById('cbox').classList.toggle('open');}
+function sChat(){
+  var inp=document.getElementById('cin');
+  var val=inp.value.trim();
+  if(!val)return;
+  var msgs=document.getElementById('cmsgs');
+  msgs.innerHTML+='<div class="mb usr"><div class="b">'+val+'</div></div>';
+  inp.value='';msgs.scrollTop=9999;
+  setTimeout(function(){
+    msgs.innerHTML+='<div class="mb bot"><div class="b">'+getBotReply(val)+'</div></div>';
+    msgs.scrollTop=9999;
+  },700);
+}
+
+// ── CONTACT FORM ──
+function hSub(e){
   e.preventDefault();
-  e.target.innerHTML = '<div style="color:#34d399;font-weight:700;text-align:center;padding:20px;font-size:15px;">✅ Request sent! We\'ll call you within the hour.</div>';
+  e.target.innerHTML='<div style="color:#34d399;font-weight:700;text-align:center;padding:24px;font-size:15px">&#9989; Request sent! We\'ll call you within the hour.</div>';
 }
 </script>
 </body>
